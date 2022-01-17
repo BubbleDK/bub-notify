@@ -1,0 +1,125 @@
+<html>
+    <header>
+        <title>bub-notify</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href='https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css' rel='stylesheet'>
+        <link href="https://unpkg.com/vuesax@4.0.1-alpha.16/dist/vuesax.min.css" rel="stylesheet">
+        <link href="//unpkg.com/iview/dist/styles/iview.css" rel="stylesheet" >
+        <link rel="stylesheet" href="style.css" />
+    </header>
+
+    <body>
+        <v-app id="bub-notify" v-if='showSettings'>
+            <v-main>
+                <vs-button square border id="settingsBtn" @click="openNotification('This is a test', 'Test text', 2000)">Test Notification</vs-button>
+                <div id="content">
+                    <div id="boxes">
+                        <div id="boxesHeader">
+                            Notification Color
+                        </div>
+
+                        <v-menu v-model="notifyColorPickerActive" :close-on-content-click="false" offset-x>
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-text-field v-model="notiColor" color="rgb(26, 92, 255, 0.5)" append-icon="edit" type="text" dark @click:append="openColorPicker('notify')"></v-text-field>
+                            </template>
+
+                            <v-color-picker dot-size='10' v-model='notiColor'></v-color-picker>
+                        </v-menu>
+                    </div>
+
+                    <div id="boxes">
+                        <div id="boxesHeader">
+                            <p>Border Activator</p>
+
+                            <vs-checkbox v-model="notiShowBorder">
+                                <template v-if="notiShowBorder">
+                                    Enabled
+                                </template>
+                                <template v-else>
+                                    Disabled
+                                </template>
+                            </vs-checkbox>
+                        </div>
+                    </div>
+
+                    <div id="boxes" v-if="notiShowBorder">
+                        <div id="boxesHeader">
+                            Border Color
+                        </div>
+                        
+                        <v-menu v-model="notifyBorderColorActive" :close-on-content-click="false" offset-x>
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-text-field v-model="notiBorderColor" color="rgb(26, 92, 255, 0.5)" append-icon="edit" dark type="text" @click:append="openColorPicker('border')"></v-text-field>
+                            </template>
+
+                            <v-color-picker dot-size='10' v-model='notiBorderColor'></v-color-picker>
+                        </v-menu>
+                    </div>
+
+                    <div id="boxes">
+                        <div id="boxesHeaderPos">
+                            <p>Notification Position</p>
+
+                            <vs-select placeholder="Select" v-model="notiPosition" block>
+                                <vs-option label="Top Right" value="top-right">
+                                    Top Right
+                                </vs-option>
+                                <vs-option label="Top Left" value="top-left">
+                                    Top Left
+                                </vs-option>
+                                <vs-option label="Top Center" value="top-center">
+                                    Top Center
+                                </vs-option>
+                                <vs-option label="Bottom Right" value="bottom-right">
+                                    Bottom Right
+                                </vs-option>
+                                <vs-option label="Bottom Left" value="bottom-left">
+                                    Bottom Left
+                                </vs-option>
+                                <vs-option label="Bottom Center" value="bottom-center">
+                                    Bottom Center
+                                </vs-option>
+                            </vs-select>
+                        </div>
+                    </div>
+
+                    <div id="boxes">
+                        <div id="boxesHeader">
+                            <p>Flat Notification</p>
+
+                            <vs-checkbox v-model="notiFlat">
+                                <template v-if="notiFlat">
+                                    Enabled
+                                </template>
+                                <template v-else>
+                                    Disabled
+                                </template>
+                            </vs-checkbox>
+                        </div>
+                    </div>
+
+                    <div id="boxes">
+                        <div id="boxesHeader">
+                            <p>Squared Notification</p>
+
+                            <vs-checkbox v-model="notiSquare">
+                                <template v-if="notiSquare">
+                                    Enabled
+                                </template>
+                                <template v-else>
+                                    Disabled
+                                </template>
+                            </vs-checkbox>
+                        </div>
+                    </div>
+                </div>
+            </v-main>
+        </v-app>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+        <script src='https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js'></script>
+        <script src="https://unpkg.com/vuesax@4.0.1-alpha.16/dist/vuesax.min.js"></script>
+        <script src="libraries/axios.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+  --primary: rgb(26, 92, 255, 0.5);
+  --accent: #2D3139;
+  --opacity-color: rgba(0, 0, 0, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+#bub-notify {
+  position: absolute;
+  background: var(--accent);
+  inset: 0;
+  margin: auto;
+  width: 450px;
+  height: 500px;
+  padding: 10px;
+  animation: 0.6s ease-out 0s 1 slideInFromLeft;
+}
+
+#content {
+  padding-top: 20px;
+}
+
+#boxes {
+  border-radius: 4px;
+  width: 100%;
+  padding: 5px;
+  color: rgb(255, 255, 255);
+}
+
+#boxesHeader {
+  display: grid;
+  grid-template-columns: 220px 100px;
+}
+
+#boxesHeader p {
+  position: relative;
+  left: 0;
+  top: 25%;
+}
+
+#boxesHeaderPos {
+  display: grid;
+  grid-template-columns: 220px 200px;
+}
+
+#boxesHeaderPos p {
+  padding-top: 8.5px;
+}
+
+#settingsBtn {
+  color: white;
+  width: 100%;
+}
+
+.v-application--wrap {
+  min-height: 0 !important;
+}
+
+.vs-button {
+  margin: 0 !important;
+}
+
+.v-color-picker {
+  width: 250px;
+  height: 255px;
+  margin: 10px 10px;
+}
+
+.v-menu__content {
+  box-shadow: none !important;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+      transform: translateX(-15%);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
