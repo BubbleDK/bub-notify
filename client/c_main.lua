@@ -13,7 +13,7 @@ AddEventHandler('bub-notify:showNotify', function(title, text, icon, duration)
         title = title,
         text = text,
         icon = icon,
-        duration = duation,
+        duration = duration,
     })
 end)
 
